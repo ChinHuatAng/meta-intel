@@ -1,0 +1,32 @@
+From 21706bbe534485788dd83b46697241ea1b390acd Mon Sep 17 00:00:00 2001
+From: Anuj Mittal <anuj.mittal@intel.com>
+Date: Tue, 20 Aug 2019 15:58:04 +0800
+Subject: [PATCH] use provided paths
+
+Signed-off-by: Anuj Mittal <anuj.mittal@intel.com>
+---
+ inference-engine/CMakeLists.txt | 8 --------
+ 1 file changed, 8 deletions(-)
+
+diff --git a/inference-engine/CMakeLists.txt b/inference-engine/CMakeLists.txt
+index 1c3d6eab..9e153825 100644
+--- a/inference-engine/CMakeLists.txt
++++ b/inference-engine/CMakeLists.txt
+@@ -99,14 +99,6 @@ if(NOT(UNIX))
+     set (CMAKE_RUNTIME_OUTPUT_DIRECTORY ${OUTPUT_ROOT}/${BIN_FOLDER})
+     set (LIBRARY_OUTPUT_DIRECTORY ${OUTPUT_ROOT}/${BIN_FOLDER})
+     set (LIBRARY_OUTPUT_PATH ${LIBRARY_OUTPUT_DIRECTORY}) # compatibility issue: linux uses LIBRARY_OUTPUT_PATH, windows uses LIBRARY_OUTPUT_DIRECTORY
+-else ()
+-    set (CMAKE_LIBRARY_OUTPUT_DIRECTORY ${OUTPUT_ROOT}/${BIN_FOLDER}/${IE_BUILD_CONFIGURATION}/lib)
+-    set (CMAKE_ARCHIVE_OUTPUT_DIRECTORY ${OUTPUT_ROOT}/${BIN_FOLDER}/${IE_BUILD_CONFIGURATION}/lib)
+-    set (CMAKE_COMPILE_PDB_OUTPUT_DIRECTORY ${OUTPUT_ROOT}/${BIN_FOLDER}/${IE_BUILD_CONFIGURATION})
+-    set (CMAKE_PDB_OUTPUT_DIRECTORY ${OUTPUT_ROOT}/${BIN_FOLDER}/${IE_BUILD_CONFIGURATION})
+-    set (CMAKE_RUNTIME_OUTPUT_DIRECTORY ${OUTPUT_ROOT}/${BIN_FOLDER}/${IE_BUILD_CONFIGURATION})
+-    set (LIBRARY_OUTPUT_DIRECTORY ${OUTPUT_ROOT}/${BIN_FOLDER}/${IE_BUILD_CONFIGURATION}/lib)
+-    set (LIBRARY_OUTPUT_PATH ${LIBRARY_OUTPUT_DIRECTORY}/lib)
+ endif()
+ 
+ if (APPLE)
+-- 
+2.21.0
+

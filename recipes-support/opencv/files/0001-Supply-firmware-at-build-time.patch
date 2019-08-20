@@ -1,0 +1,42 @@
+From 10d3cae89a0e1d8405cf774a0572e7dad00e4e20 Mon Sep 17 00:00:00 2001
+From: Anuj Mittal <anuj.mittal@intel.com>
+Date: Tue, 20 Aug 2019 15:40:18 +0800
+Subject: [PATCH] Supply firmware at build time
+
+Signed-off-by: Anuj Mittal <anuj.mittal@intel.com>
+---
+ inference-engine/cmake/dependencies.cmake | 18 ------------------
+ 1 file changed, 18 deletions(-)
+
+diff --git a/inference-engine/cmake/dependencies.cmake b/inference-engine/cmake/dependencies.cmake
+index d3cdf958..d8ae9e18 100644
+--- a/inference-engine/cmake/dependencies.cmake
++++ b/inference-engine/cmake/dependencies.cmake
+@@ -37,24 +37,6 @@ else()
+     set(MODELS_BRANCH "master")
+ endif()
+ 
+-if (ENABLE_MYRIAD)
+-    RESOLVE_DEPENDENCY(VPU_FIRMWARE_MA2450
+-            ARCHIVE_UNIFIED firmware_ma2450_491.zip
+-            TARGET_PATH "${TEMP}/vpu/firmware/ma2450"
+-            ENVIRONMENT "VPU_FIRMWARE_MA2450"
+-            FOLDER)
+-    debug_message(STATUS "ma2450=" ${VPU_FIRMWARE_MA2450})
+-endif ()
+-
+-if (ENABLE_MYRIAD)
+-    RESOLVE_DEPENDENCY(VPU_FIRMWARE_MA2480
+-            ARCHIVE_UNIFIED firmware_ma2480_mdk_R7_9.zip
+-            TARGET_PATH "${TEMP}/vpu/firmware/ma2480"
+-            ENVIRONMENT "VPU_FIRMWARE_MA2480"
+-            FOLDER)
+-    debug_message(STATUS "ma2480=" ${VPU_FIRMWARE_MA2480})
+-endif ()
+-
+ ## enable cblas_gemm from OpenBLAS package
+ if (GEMM STREQUAL "OPENBLAS")
+ if(NOT BLAS_LIBRARIES OR NOT BLAS_INCLUDE_DIRS)
+-- 
+2.21.0
+

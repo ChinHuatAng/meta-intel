@@ -1,0 +1,25 @@
+From eec06d26720062de171983b98f689748d9a2f90a Mon Sep 17 00:00:00 2001
+From: Anuj Mittal <anuj.mittal@intel.com>
+Date: Tue, 20 Aug 2019 12:40:09 +0800
+Subject: [PATCH] supply ade
+
+Signed-off-by: Anuj Mittal <anuj.mittal@intel.com>
+---
+ inference-engine/thirdparty/CMakeLists.txt | 1 -
+ 1 file changed, 1 deletion(-)
+
+diff --git a/inference-engine/thirdparty/CMakeLists.txt b/inference-engine/thirdparty/CMakeLists.txt
+index 5a4b2595..3441f3e3 100644
+--- a/inference-engine/thirdparty/CMakeLists.txt
++++ b/inference-engine/thirdparty/CMakeLists.txt
+@@ -12,7 +12,6 @@ export(TARGETS pugixml NAMESPACE IE:: APPEND FILE "${CMAKE_BINARY_DIR}/targets.c
+ export(TARGETS pugixml NAMESPACE IE:: APPEND FILE "${CMAKE_BINARY_DIR}/targets_developer.cmake")
+ 
+ add_subdirectory(stb_lib)
+-add_subdirectory(ade)
+ 
+ if (ENABLE_CLDNN)
+     set(CLDNN__OUTPUT_BIN_DIR ${CMAKE_RUNTIME_OUTPUT_DIRECTORY})
+-- 
+2.21.0
+
