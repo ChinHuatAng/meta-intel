@@ -1,0 +1,25 @@
+From 938fc5d7c75a30547321dfbc896ad8a08da0d891 Mon Sep 17 00:00:00 2001
+From: Chin Huat Ang <chin.huat.ang@intel.com>
+Date: Tue, 27 Aug 2019 06:51:42 +0800
+Subject: [PATCH] format_reader: install library
+
+Signed-off-by: Chin Huat Ang <chin.huat.ang@intel.com>
+---
+ inference-engine/samples/common/format_reader/CMakeLists.txt | 1 +
+ 1 file changed, 1 insertion(+)
+
+diff --git a/inference-engine/samples/common/format_reader/CMakeLists.txt b/inference-engine/samples/common/format_reader/CMakeLists.txt
+index e3ecd58..cc30fec 100644
+--- a/inference-engine/samples/common/format_reader/CMakeLists.txt
++++ b/inference-engine/samples/common/format_reader/CMakeLists.txt
+@@ -35,6 +35,7 @@ source_group("include" FILES ${LIBRARY_HEADERS})
+ 
+ # Create library file from sources.
+ add_library(${TARGET_NAME} SHARED ${MAIN_SRC} ${LIBRARY_HEADERS})
++install(TARGETS ${TARGET_NAME} DESTINATION lib)
+ target_link_libraries(${TARGET_NAME} ${OpenCV_LIBRARIES})
+ 
+ if(CMAKE_VERSION VERSION_LESS "2.8.11")
+-- 
+2.7.4
+
