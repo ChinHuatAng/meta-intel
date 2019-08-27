@@ -32,7 +32,6 @@ S = "${WORKDIR}/git/inference-engine"
 EXTRA_OECMAKE = " \
                   -DVPU_FIRMWARE_MA2450_FILE=../mvnc/MvNCAPI-ma2450.mvcmd \
                   -DVPU_FIRMWARE_MA2480_FILE=../mvnc/MvNCAPI-ma2480.mvcmd \
-                  -DENABLE_CLDNN=1 \
                   -DENABLE_INTEL_OMP=0 \
                   -DENABLE_OPENCV=1 \
                   -DENABLE_SAMPLES_CORE=1 \
@@ -43,4 +42,6 @@ EXTRA_OECMAKE = " \
                   -DCMAKE_INSTALL_LOCAL_ONLY=OFF \
                   "
 
-DEPENDS += "libusb1 ade mkl-dnn opencv intel-compute-runtime pugixml"
+DEPENDS += "libusb1 ade mkl-dnn opencv pugixml"
+
+PACKAGECONFIG[intel-compute-runtime] = "-DENABLE_CLDNN=1,-DENABLE_CLDNN=0,intel-compute-runtime"
