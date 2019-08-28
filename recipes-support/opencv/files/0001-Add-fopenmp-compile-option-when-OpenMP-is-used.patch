@@ -1,0 +1,25 @@
+From f4a032d5ab4e8fb1fdadf8d8a53415d6471bba5d Mon Sep 17 00:00:00 2001
+From: Chin Huat Ang <chin.huat.ang@intel.com>
+Date: Wed, 28 Aug 2019 13:36:10 +0800
+Subject: [PATCH] Add -fopenmp compile option when OpenMP is used
+
+Signed-off-by: Chin Huat Ang <chin.huat.ang@intel.com>
+---
+ inference-engine/src/mkldnn_plugin/CMakeLists.txt | 1 +
+ 1 file changed, 1 insertion(+)
+
+diff --git a/inference-engine/src/mkldnn_plugin/CMakeLists.txt b/inference-engine/src/mkldnn_plugin/CMakeLists.txt
+index df81a5a..850394d 100644
+--- a/inference-engine/src/mkldnn_plugin/CMakeLists.txt
++++ b/inference-engine/src/mkldnn_plugin/CMakeLists.txt
+@@ -50,6 +50,7 @@ if (THREADING STREQUAL "TBB")
+     set(MKLDNN_THR MKLDNN_THR_TBB)
+ elseif (THREADING STREQUAL "OMP")
+     set(MKLDNN_THR MKLDNN_THR_OMP)
++    target_link_options(${TARGET_NAME} PRIVATE -fopenmp)
+ else()
+     set(MKLDNN_THR MKLDNN_THR_SEQ)
+ endif()
+-- 
+2.7.4
+

@@ -13,6 +13,7 @@ SRC_URI = "git://github.com/opencv/dldt.git;protocol=git;branch=2019 \
            file://0006-Install-sample-apps.patch;patchdir=../ \
            file://0017-use-system-pugixml.patch;patchdir=../ \
            file://0001-format_reader-install-library.patch;patchdir=../ \
+           file://0001-Add-fopenmp-compile-option-when-OpenMP-is-used.patch;patchdir=../ \
            "
 SRCREV = "0ef92871b6dd9a9ceed16d184c4595d2618d526f"
 
