@@ -45,7 +45,9 @@ EXTRA_OECMAKE = " \
 
 DEPENDS += "libusb1 ade mkl-dnn opencv pugixml"
 
-PACKAGECONFIG[intel-compute-runtime] = "-DENABLE_CLDNN=1,-DENABLE_CLDNN=0,intel-compute-runtime"
+PACKAGECONFIG[intel-compute-runtime] = "-DENABLE_CLDNN=1,-DENABLE_CLDNN=0,,intel-compute-runtime"
+
+PACKAGECONFIG ?= "intel-compute-runtime"
 
 # Workaround issue where cmake build isn't configured to support SOVERSION
 FILES_${PN}_append = " ${libdir}/lib*${SOLIBSDEV}"
@@ -62,4 +64,6 @@ do_install_append () {
     install ${B}/src/inference_engine/libinference_engine.so ${D}${libdir}
     install ${B}/src/hetero_plugin/libHeteroPlugin.so ${D}${libdir}
     install ${B}/src/mkldnn_plugin/libMKLDNNPlugin.so ${D}${libdir}
+    install ${B}/src/cldnn_engine/libclDNNPlugin.so ${D}${libdir}
+
 }
